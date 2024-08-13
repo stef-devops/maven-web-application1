@@ -96,14 +96,14 @@
 	
 	    <repository>
 	      <id>nexus</id>
-	      <name>maven releases Nexus Repository</name>
-	      <url>http://192.168.0.107:8081/repository/maven-releases/</url>
+	      <name>facebook Release Repository</name>
+	      <url>http://192.168.0.107:8081/repository/facebook-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>maven snapshots Nexus Repository </name>
-	      <url>http://192.168.0.107:8081/repository/maven-snapshots/</url>
+	      <name>facebook Snapshot Nexus Repository</name>
+	      <url>http://192.168.0.107:8081/repository/facebook-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
