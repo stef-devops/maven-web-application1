@@ -26,4 +26,5 @@ stage('deploy'){
 sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@18.207.162.92:/opt/apache-tomcat-10.1.28/webapps"    // some block
 }
 }
+    jacoco changeBuildStatus: true, deltaBranchCoverage: '80', deltaClassCoverage: '80', deltaComplexityCoverage: '80', deltaInstructionCoverage: '80', deltaLineCoverage: '80', deltaMethodCoverage: '80', maximumBranchCoverage: '80', maximumClassCoverage: '80', maximumComplexityCoverage: '80', maximumInstructionCoverage: '80', maximumLineCoverage: '80', maximumMethodCoverage: '80', minimumBranchCoverage: '80', minimumClassCoverage: '80', minimumComplexityCoverage: '80', minimumInstructionCoverage: '80', minimumLineCoverage: '80', minimumMethodCoverage: '80', runAlways: true
 }
