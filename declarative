@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+   tools{
+       maven "3.9.8"
+   }
+    stages {
+        stage('checkougit') {
+            steps {
+                git branch: 'development', url: 'https://github.com/stef-devops/maven-web-application1.git'
+            }
+        }
+        stage('maven build'){
+            steps{
+                sh "mvn clean package"
+            }
+            
+        }
+        stage('sonar'){
+            steps{
+                sh "mvn clean sonar:sonar"
+            }
+        }
+        stage('nexus'){
+            steps{
+                sh "mvn clean deploy"
+            }
+        }
+        stage('tomcat'){
+            steps{
+                sshagent(['e2ce7b1f-c212-4431-b5e4-becd627049de']) {
+    sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@18.207.162.92:/opt/apache-tomcat-10.1.28/webapps"// some block
+}
+                
+            }
+        }
+    }
+}
